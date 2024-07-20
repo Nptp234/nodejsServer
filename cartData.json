@@ -1,0 +1,14 @@
+[
+  {
+    "id": "25ac2f4c-0ee2-4b32-a8ed-c72c86865d45",
+    "BillID": "19163285-b30f-43f4-b00d-8b711ff0ca5f",
+    "Amount": "1",
+    "MainPrice": "100000"
+  },
+  {
+    "id": "c4ff8ee5-59a8-4c96-b921-ded70663947c",
+    "BillID": "19163285-b30f-43f4-b00d-8b711ff0ca5f",
+    "Amount": "1",
+    "MainPrice": "100000"
+  }
+]

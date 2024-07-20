@@ -1,0 +1,50 @@
+[
+  {
+    "id": "4ec6fe2f-68ac-4154-8c80-9cf17eb79044",
+    "CombinationID": "e89386f3-b171-470f-a177-e92c3d889ad4",
+    "VariantID": "31076310-f088-4abb-b1e4-74a85758889a",
+    "VariantValueID": "c31d91cc-d41c-4bbf-b3c7-c81f46eb00de"
+  },
+  {
+    "id": "c254c519-7a13-414a-b877-b10529b28463",
+    "CombinationID": "e2f796a5-dbeb-46b3-b60c-f868b3367ca3",
+    "VariantID": "31076310-f088-4abb-b1e4-74a85758889a",
+    "VariantValueID": "609b8938-a8b6-4fbb-af15-67d74c49b979"
+  },
+  {
+    "id": "c6585b7d-a974-4b92-9952-e84c851915a6",
+    "CombinationID": "e2f796a5-dbeb-46b3-b60c-f868b3367ca3",
+    "VariantID": "31076310-f088-4abb-b1e4-74a85758889a",
+    "VariantValueID": "0fa6c2e8-af78-424c-8a75-349a2069072c"
+  },
+  {
+    "id": "0064a12a-2387-4343-b62d-fc22caff2991",
+    "CombinationID": "e2f796a5-dbeb-46b3-b60c-f868b3367ca3",
+    "VariantID": "31076310-f088-4abb-b1e4-74a85758889a",
+    "VariantValueID": "85451a87-2108-4ff9-ade1-362c11e3846b"
+  },
+  {
+    "id": "dde48f76-b8fe-4e65-b909-f3fb6e965837",
+    "CombinationID": "e2f796a5-dbeb-46b3-b60c-f868b3367ca3",
+    "VariantID": "9b0dd321-7343-459c-960b-8739c9115109",
+    "VariantValueID": "28332435-4a48-4cf1-9335-070e6d6d1909"
+  },
+  {
+    "id": "d59d75f5-39e1-4519-a55c-f2612e3befb3",
+    "CombinationID": "e2f796a5-dbeb-46b3-b60c-f868b3367ca3",
+    "VariantID": "9b0dd321-7343-459c-960b-8739c9115109",
+    "VariantValueID": "2e655a2b-dc7d-44e4-874b-ba4190247c7d"
+  },
+  {
+    "id": "b9aa8d16-0e0b-4df4-b1d5-b64528194712",
+    "CombinationID": "e2f796a5-dbeb-46b3-b60c-f868b3367ca3",
+    "VariantID": "9b0dd321-7343-459c-960b-8739c9115109",
+    "VariantValueID": "af301f57-d1fe-4149-971c-c3ed31779fda"
+  },
+  {
+    "id": "1fa243ad-f078-40e6-9c56-5cfef628fcab",
+    "CombinationID": "e2f796a5-dbeb-46b3-b60c-f868b3367ca3",
+    "VariantID": "9b0dd321-7343-459c-960b-8739c9115109",
+    "VariantValueID": "cb2e6af7-c96f-4a88-b7b5-5760f3a23462"
+  }
+]

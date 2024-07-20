@@ -1,0 +1,62 @@
+[
+  {
+    "id": "c31d91cc-d41c-4bbf-b3c7-c81f46eb00de",
+    "VariantName": "size",
+    "Value": "s",
+    "ExtraPrice": "10000"
+  },
+  {
+    "id": "cb2e6af7-c96f-4a88-b7b5-5760f3a23462",
+    "VariantName": "size",
+    "Value": "m",
+    "ExtraPrice": "10000"
+  },
+  {
+    "id": "af301f57-d1fe-4149-971c-c3ed31779fda",
+    "VariantName": "size",
+    "Value": "l",
+    "ExtraPrice": "10000"
+  },
+  {
+    "id": "28332435-4a48-4cf1-9335-070e6d6d1909",
+    "VariantName": "size",
+    "Value": "xl",
+    "ExtraPrice": "10000"
+  },
+  {
+    "id": "2e655a2b-dc7d-44e4-874b-ba4190247c7d",
+    "VariantName": "size",
+    "Value": "xxl",
+    "ExtraPrice": "10000"
+  },
+  {
+    "id": "85451a87-2108-4ff9-ade1-362c11e3846b",
+    "VariantName": "color",
+    "Value": "0xFFF44336",
+    "ExtraPrice": "10000"
+  },
+  {
+    "id": "e73bf10e-4624-4568-8a52-0eeda63cdcf9",
+    "VariantName": "color",
+    "Value": "0xFF0000FF",
+    "ExtraPrice": "10000"
+  },
+  {
+    "id": "0fa6c2e8-af78-424c-8a75-349a2069072c",
+    "VariantName": "color",
+    "Value": "0xFF008000",
+    "ExtraPrice": "10000"
+  },
+  {
+    "id": "c55f9155-9441-45bd-995f-1a958aae78b9",
+    "VariantName": "color",
+    "Value": "0xFF808080",
+    "ExtraPrice": "10000"
+  },
+  {
+    "id": "609b8938-a8b6-4fbb-af15-67d74c49b979",
+    "VariantName": "color",
+    "Value": "0xFF000000",
+    "ExtraPrice": "10000"
+  }
+]

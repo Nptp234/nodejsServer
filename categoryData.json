@@ -1,0 +1,27 @@
+[
+  {
+    "id": "4599e917-7e62-4db1-b001-29fa51bb4b1f",
+    "Name": "T-Shirt",
+    "Img": "assets/tshirt.png"
+  },
+  {
+    "id": "1d099820-c26a-4d3a-a11c-99bfef381c88",
+    "Name": "Pant",
+    "Img": "assets/pants.png"
+  },
+  {
+    "id": "3ba11ef1-c291-408c-bb4c-8699228c9f09",
+    "Name": "Dress",
+    "Img": "assets/dress.png"
+  },
+  {
+    "id": "d3cc102e-2124-4b2c-a13f-fbb4e977ebd4",
+    "Name": "Jacket",
+    "Img": "assets/jacket.png"
+  },
+  {
+    "id": "4b5b9463-b5a4-47c4-a399-85e6769135a0",
+    "Name": "Accessory",
+    "Img": "assets/accessories.png"
+  }
+]
