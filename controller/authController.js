@@ -66,7 +66,7 @@ class AuthController {
     }
   
     const token = jwt.sign({ id: user.id, Email: user.Email, Username: user.Username, Password: Password }, this.secretKey);
-    res.json({ message: 'Signin successful', token });
+    res.json({ message: 'Signin successful', token, user: user });
   }
   
   
@@ -74,88 +74,116 @@ class AuthController {
   // success
   async getCurrentUser(req, res) {
     try {
-        const { user } = req;
-        const { id, Email, Username, Password } = user; // Extract necessary information
+        const { email } = req.body;
 
-        // Assuming Username is part of req.user, ensure it's correctly populated
-        if (!Username) {
-            return res.status(400).json({ message: 'Username not found' });
+        if (!email) {
+            return res.status(400).json({ message: 'Email is required' });
         }
 
-        // Fetch user data based on id (assuming loadUserData() retrieves all users)
-        const users = this.loadUserData();
-        const currentUser = users.find(user => user.id === id);
+        // Fetch user data (assuming loadUserData() retrieves all users)
+        const users = await this.loadUserData();
+        const currentUser = users.find(user => user.Email === email);
 
         if (!currentUser) {
-            return res.status(400).json({ message: 'Invalid ID or password' });
+            return res.status(400).json({ message: 'Invalid Email' });
         }
 
         // Return only necessary data
-        res.json({ user: { id, Email, Username, Password }, message: 'Success' });
+        res.json({ user: currentUser, message: 'Success' });
     } catch (error) {
         console.error('Error fetching current user:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
-}
-
-  
-
-  updateProfile(req, res) {
-    const { Username, Email } = req.body;
-    const users = this.loadUserData();
-
-    const userIndex = users.findIndex(user => user.id === req.user.id);
-    if (userIndex === -1) {
-      return res.status(404).json({ message: 'User not found' });
-    }
-
-    users[userIndex] = { ...users[userIndex], Username, Email };
-    this.saveUserData(users);
-
-    res.json({ message: 'Profile updated successfully' });
   }
 
-  async changePassword(req, res) {
-    const { oldPassword, newPassword } = req.body;
-    const users = this.loadUserData();
+  async updateProfile(req, res) {
+    const { Id, Username, Email, Password } = req.body;
 
-    const userIndex = users.findIndex(user => user.id === req.user.id);
-    if (userIndex === -1 || !(await bcrypt.compare(oldPassword, users[userIndex].password))) {
-      return res.status(400).json({ message: 'Invalid password' });
+    if (!Id || !Username || !Email || !Password) {
+      return res.status(400).json({ message: 'All fields are required' });
     }
 
     try {
-      const hashedPassword = await bcrypt.hash(newPassword, 10);
-      users[userIndex].password = hashedPassword;
-      this.saveUserData(users);
+        const users = this.loadUserData();
+        const userIndex = users.findIndex(user => user.id === Id);
+        if (userIndex === -1) {
+          return res.status(404).json({ message: 'User not found' });
+        }
+        const emailCount = users.filter(user => user.Email === Email).length;
+        if (emailCount >= 2) {
+          return res.status(400).json({ message: 'Email error!' });
+        }
+        
+        users[userIndex] = { id: uuidv4(), Username, Email, Password };
+        this.saveUserData(users);
 
-      res.json({ message: 'Password changed successfully' });
+        res.json({ user: users[userIndex], message: 'User updated successfully' });
     } catch (error) {
-      console.error('Error hashing password:', error);
-      res.status(500).json({ message: 'Internal server error' });
+        console.error('Error:', error);
+        res.status(500).json({ message: 'Internal server error' });
     }
   }
+
+  //
+  async changePassword(req, res) {
+    const { oldPassword, newPassword, Id } = req.body;
+
+    if (!oldPassword || !newPassword || !Id) {
+        return res.status(400).json({ message: 'All fields are required' });
+    }
+
+    try {
+        const users = this.loadUserData();
+        const userIndex = users.findIndex(user => user.id === Id);
+
+        if (userIndex === -1) {
+            return res.status(404).json({ message: 'User not found' });
+        }
+
+        const user = users[userIndex];
+
+        // Verify old password
+        const isPasswordValid = await bcrypt.compare(oldPassword, user.Password);
+
+        if (!isPasswordValid) {
+            return res.status(400).json({ message: 'Invalid old password' });
+        }
+
+        // Hash new password
+        const hashedPassword = await bcrypt.hash(newPassword, 8);
+        users[userIndex].Password = hashedPassword;
+        this.saveUserData(users);
+
+        res.json({ message: 'Password changed successfully' });
+    } catch (error) {
+        console.error('Error changing password:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+  }
+
+
 
   async forgetPass(req, res) {
-    const { email, newPassword } = req.body;
+    const { Email, newPassword } = req.body;
     const users = this.loadUserData();
 
-    const userIndex = users.findIndex(user => user.email === email);
+    const userIndex = users.findIndex(user => user.Email === Email);
     if (userIndex === -1) {
-      return res.status(404).json({ message: 'User not found' });
+        return res.status(404).json({ message: 'User not found' });
     }
 
     try {
-      const hashedPassword = await bcrypt.hash(newPassword, 10);
-      users[userIndex].password = hashedPassword;
-      this.saveUserData(users);
+        const hashedPassword = await bcrypt.hash(newPassword, 8);
+        users[userIndex].Password = hashedPassword;
+        this.saveUserData(users);
 
-      res.json({ message: 'Password reset successful' });
+        res.json({ message: 'Password reset successful' });
     } catch (error) {
-      console.error('Error hashing password:', error);
-      res.status(500).json({ message: 'Internal server error' });
+        console.error('Error hashing password:', error);
+        res.status(500).json({ message: 'Internal server error' });
     }
   }
+
 }
 
 module.exports = AuthController;

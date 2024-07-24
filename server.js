@@ -66,11 +66,11 @@ app.post('/api/Auth/signUp', upload.none(), (req, res) => authController.signUp(
 
 app.post('/api/Auth/signIn', upload.none(), (req, res) => authController.signIn(req, res));
 
-app.get('/api/Auth/current', authenticateToken, (req, res) => authController.getCurrentUser(req, res));
+app.get('/api/Auth/current', upload.none(), (req, res) => authController.getCurrentUser(req, res));
 
-app.put('/api/Auth/updateProfile', authenticateToken, upload.none(), (req, res) => authController.updateProfile(req, res));
+app.post('/api/Auth/updateProfile', upload.none(), (req, res) => authController.updateProfile(req, res));
 
-// app.put('/api/Auth/changePassword', authenticateToken, upload.none(), (req, res) => authController.changePassword(req, res));
+app.post('/api/Auth/changePassword', upload.none(), (req, res) => authController.changePassword(req, res));
 
 // app.put('/api/Auth/forgetPass', upload.none(), (req, res) => authController.forgetPass(req, res));
 
